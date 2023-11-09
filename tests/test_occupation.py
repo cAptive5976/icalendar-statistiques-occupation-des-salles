@@ -1,6 +1,6 @@
 def genere_page_web(nom_fichier, titre_page, corps):
-    HTML_INDEX = """
-   <!DOCTYPE html>
+    f = open(nom_fichier,'w',encoding='utf-8')
+    HTML_INDEX = """<!DOCTYPE html>
    <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\" dir=\"ltr\">
    <head>
    <title>{titre_page}</title>
@@ -15,9 +15,8 @@ def genere_page_web(nom_fichier, titre_page, corps):
    </body>
    </html>
    """
-f = open(nom_fichier,'w',encoding='utf-8')
-f.write(HTML_INDEX)
-f.close
+    f.write(HTML_INDEX)
+    f.close
     
 
 def main():
