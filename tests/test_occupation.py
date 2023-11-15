@@ -3,7 +3,7 @@ def genere_page_web(nom_fichier, titre_page, corps):
     HTML_INDEX = """<!DOCTYPE html>
    <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\" dir=\"ltr\">
    <head>
-   <title>{titre_page}</title>
+   <title>{}</title>
    <style>
       table, th, td {{
       border:1px solid black;
@@ -11,10 +11,10 @@ def genere_page_web(nom_fichier, titre_page, corps):
    </style>
    </head>
    <body>
-   {corps}
+   {}
    </body>
    </html>
-   """
+   """.format(titre_page, corps)
     f.write(HTML_INDEX)
     f.close
     
