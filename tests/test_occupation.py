@@ -1,3 +1,7 @@
+import module_occupation
+import datetime
+import argparse
+
 def genere_page_web(nom_fichier, titre_page, corps):
     f = open(nom_fichier,'w',encoding='utf-8')
     HTML_INDEX = """<!DOCTYPE html>
