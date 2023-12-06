@@ -1,43 +1,41 @@
-import argparse
-import datetime
+from datetime import datetime
 
-def importation(fichier):
-    with open(fichier, 'r') as f:
-        calendar = f.read()
-    events = []
-    for event in calendar.split('BEGIN:VEVENT'):
-        summary = event.split('SUMMARY:')[1].split('\n')[0]
-        description = event.split('DESCRIPTION:')[1].split('\n')[0]
-        start = datetime.datetime.strptime(event.split('DTSTART:')[1].split('\n')[0], '%Y-%m-%dT%H:%M:%S')
-        end = datetime.datetime.strptime(event.split('DTEND:')[1].split('\n')[0], '%Y-%m-%dT%H:%M:%S')
-        location = event.split('LOCATION:')[1].split('\n')[0]
-        organizer = event.split('ORGANIZER;CN=')[1].split(':')[0]
-        attendees = [a.split('ATTENDEE;CN=')[1].split(':')[0] for a in event.split('ATTENDEE;CN=')[1:]]
-        events.append({
-            'summary': summary,
-            'description': description,
-            'start': start,
-            'end': end,
-            'location': location,
-            'organizer': organizer,
-            'attendees': attendees
-        })
+def extract_data(file_list):
+    data = []
+    for file_path in file_list:
+        with open(file_path, 'r') as file:
+            data.append(file.read())
+    return data
+def generate_html(data, output_dir):
+    html_content = """
+    <html>
+    <body>
+        <table border="1">
+            <tr>
+                <th>Salle</th>
+                <th>Heures d’utilisation moyen/semaine</th>
+                <th>Heures d’utilisation moyen/jour    </th>
+                <th>Taux d’occupation (%)</th>
+            </tr>
+    """
 
-    return events
+    for event in data:
+        html_content += f"""
+            <tr>
+                <td>{event['start_time']}</td>
+                <td>{event['end_time']}</td>
+                <td>{event.get('summary', '')}</td>
+                <td>{event.get('location', '')}</td>
+                <td>{event.get('group', '')}</td>
+                <td>{event.get('teacher', '')}</td>
+            </tr>
+        """
 
-fichiers = ['../data/ADECal_BUT1.ics', '../data/ADECal_BUT2.ics', '../data/ADECal_BUT3.ics']
+    html_content += """
+        </table>
+    </body>
+    </html>
+    """
 
-for fichier in fichiers:
-    events = importation(fichier)
-    print(events)
-
-    
-
-#création d'une variable pour y entrer les données
-
-#définition du début et de la fin de ce qu'il faut lire
-
-#définition des éléments à garder (heure, salle)
-
-#association des données avec leurs correspondances
-
+    with open(output_dir + 'index.html', 'w') as file:
+        file.write(html_content)
