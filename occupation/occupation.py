@@ -1,32 +1,14 @@
-import module_occupation
-import datetime
 import argparse
-
-def genere_page_web(nom_fichier, titre_page, corps):
-    f = open(nom_fichier,'w',encoding='utf-8')
-    HTML_INDEX = """<!DOCTYPE html>
-   <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\" dir=\"ltr\">
-   <head>
-   <title>{}</title>
-   <style>
-      table, th, td {{
-      border:1px solid black;
-      }}
-   </style>
-   </head>
-   <body>
-   {}
-   </body>
-   </html>
-   """.format(titre_page, corps)
-    f.write(HTML_INDEX)
-    f.close
-    
+from module_occupation import *
 
 def main():
-    corps = """ <h1> Titre </h1>
-            """
-    genere_page_web("../html/index.html", "mon titre", corps)
+    parser = argparse.ArgumentParser(description="Creation de la bases des deux arguments avec argparse, on l'associe a une variable pour simplfier le code")
+    parser.add_argument("--input-file", nargs="+", help="On indique en argument les trois fichiers ICS")
+    parser.add_argument("--output-dir", help="On indique ici le repertoire ou le fichier html sera créé")
+    args = parser.parse_args()
+    data = extract_data(args.input_file)
+    processed_data = process_data(data)
+    generate_html(processed_data, args.output_dir)
 
 if __name__ == "__main__":
     main()
