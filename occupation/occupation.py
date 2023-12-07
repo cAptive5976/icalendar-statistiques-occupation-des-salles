@@ -2,9 +2,14 @@ import argparse
 from module_occupation import *
 
 def main():
+    """
+    Arg:
+
+    Returns:
+    """
     parser = argparse.ArgumentParser(description="Creation de la bases des deux arguments avec argparse, on l'associe a une variable pour simplfier le code")
     parser.add_argument("--input-file", nargs="+", help="On indique en argument les trois fichiers ICS")
-    parser.add_argument("--output-dir", help="On indique ici le repertoire ou le fichier html sera créé")
+    parser.add_argument("--output-dir", help="On indique ici le repertoire ou le fichier html sera cree")
     args = parser.parse_args()
     data = extract_data(args.input_file)
     processed_data = process_data(data)

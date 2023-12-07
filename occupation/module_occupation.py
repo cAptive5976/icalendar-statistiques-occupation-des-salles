@@ -22,23 +22,16 @@ def process_data(data):
                 current_event['summary'] = line.split(':')[-1]
             elif line.startswith('LOCATION:'):  
                 current_event['location'] = line.split(':')[-1]
-            elif line.startswith('DESCRIPTION:'): 
-                description_parts = line.split('\n')
-                current_event['group'] = description_parts[1].strip()  
-                current_event['teacher'] = description_parts[2].strip()  
             elif line.startswith('DTSTART:'):  
                 start_time = line.split(':')[-1]
-                current_event['start_time'] = datetime.strptime(start_time, '%Y%m%dT%H%M%S').strftime('%d-%m-%Y %H:%M')
-            elif line.startswith('DTEND:'): 
+                current_event['start_time'] = datetime.strptime(start_time, '%Y%m%dT%H%M%SZ')
+            elif line.startswith('DTEND:'):
                 end_time = line.split(':')[-1]
-                current_event['end_time'] = datetime.strptime(end_time, '%Y%m%dT%H%M%S').strftime('%d-%m-%Y %H:%M')
+                current_event['end_time'] = datetime.strptime(end_time, '%Y%m%dT%H%M%SZ')
             elif line.startswith('END:VEVENT'): 
                 events.append(current_event)
-
         processed_data.extend([event for event in events if event.get('summary', '')])
-
     return processed_data
-
 def generate_html(data, output_dir):
     html_content = """
     <html>
@@ -46,21 +39,23 @@ def generate_html(data, output_dir):
         <table border="1">
             <tr>
                 <th>Salle</th>
+                <th>Heures d'utlisation</th>
                 <th>Heures d’utilisation moyen/semaine</th>
-                <th>Heures d’utilisation moyen/jour    </th>
+                <th>Heures d’utilisation moyen/jour</th>
                 <th>Taux d’occupation (%)</th>
             </tr>
     """
 
     for event in data:
-        html_content += f"""
+        location = event['location']
+        total_hours = sum((event['end_time'] - event['start_time']).total_seconds() / 3600 for event in data if event['location'] == location)
+        html_content += f"""    
             <tr>
-                <td>{event['start_time']}</td>
-                <td>{event['end_time']}</td>
-                <td>{event.get('summary', '')}</td>
-                <td>{event.get('location', '')}</td>
-                <td>{event.get('group', '')}</td>
-                <td>{event.get('teacher', '')}</td>
+                <td>{location}</td>
+                <td>{total_hours}</td>
+                <td>{total_hours / len(data)}</td>
+                <td>{total_hours / 7}</td>
+                <td>{total_hours / len(data) * 100}%</td>
             </tr>
         """
 
