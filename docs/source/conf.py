@@ -6,10 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'SAE105 - Occupation des salles - Charles - William'
-copyright = '2023, Charles  and William '
-author = 'Charles  and William '
-release = '0.1'
+project = 'I-calendar : occupation des salles'
+copyright = '2023,  William and  Charles'
+author = ' William and  Charles'
+release = '0.5'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
