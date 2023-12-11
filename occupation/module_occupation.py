@@ -57,8 +57,8 @@ def generate_html(data, output_dir):
         <tr>
             <td>{location}</td>
             <td>{total_hours}</td>
+            <td>{total_hours / 7 }</td>
             <td>{total_hours / len(data)}</td>
-            <td>{total_hours / 7}</td>
             <td>{total_hours / len(data) * 100}%</td>
         </tr>
     """
