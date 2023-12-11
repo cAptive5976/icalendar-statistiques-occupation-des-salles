@@ -46,18 +46,22 @@ def generate_html(data, output_dir):
             </tr>
     """
 
+    processed_locations = set()
     for event in data:
         location = event['location']
-        total_hours = sum((event['end_time'] - event['start_time']).total_seconds() / 3600 for event in data if event['location'] == location)
+        if location in processed_locations:
+           continue
+        total_hours = sum((e['end_time'] - e['start_time']).total_seconds() / 3600 for e in data if e['location'] == location)
+        processed_locations.add(location)
         html_content += f"""    
-            <tr>
-                <td>{location}</td>
-                <td>{total_hours}</td>
-                <td>{total_hours / len(data)}</td>
-                <td>{total_hours / 7}</td>
-                <td>{total_hours / len(data) * 100}%</td>
-            </tr>
-        """
+        <tr>
+            <td>{location}</td>
+            <td>{total_hours}</td>
+            <td>{total_hours / len(data)}</td>
+            <td>{total_hours / 7}</td>
+            <td>{total_hours / len(data) * 100}%</td>
+        </tr>
+    """
 
     html_content += """
         </table>
