@@ -60,6 +60,7 @@ def generate_html(data, output_dir):
     <head>
         <title>I-calendar : occupation des salles</title>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="icon" type="img/png" href="images/icon.png" />
     </head>
     <body>
     <header>
@@ -95,9 +96,11 @@ def generate_html(data, output_dir):
 
     html_content += """
         </table>
-        PS : Certaines cases sont buggés due au fait que  
+        <footer>
+        PS : Certaines cases sont buggées du fait que les salles ne sont pas forcément remplies
         <br></br>
-        Par  Charles et  William
+        Projet realisé par  Charles et  William
+        </footer>
     </body>
     </html>
     """
