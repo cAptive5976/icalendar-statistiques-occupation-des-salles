@@ -1,4 +1,5 @@
 import unittest
+import os
 from occupation import module_occupation
 
 class TestOccupation(unittest.TestCase):
@@ -14,6 +15,9 @@ class TestOccupation(unittest.TestCase):
         self.assertEqual(len(result), 2)
         self.assertEqual(result[0], 'Calendrier BUT1')
         self.assertEqual(result[1], 'Calendrier BUT2')
+        os.remove('test_ADECal_BUT2.ics')
+        os.remove('test_ADECal_BUT1.ics')
+        
 
 if __name__ == '__main__':
     unittest.main()
