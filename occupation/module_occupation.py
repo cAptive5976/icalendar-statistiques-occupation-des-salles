@@ -57,7 +57,15 @@ def generate_html(data, output_dir):
     """
     html_content = """
     <html>
+    <head>
+        <title>I-calendar : occupation des salles</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    </head>
     <body>
+    <header>
+        <h1>SAE105 : Traiter des données</h1>
+    </header>
+        <h2>I-calendar : occupation des salles</h2>
         <table border="1">
             <tr>
                 <th>Salle</th>
@@ -87,6 +95,9 @@ def generate_html(data, output_dir):
 
     html_content += """
         </table>
+        PS : Certaines cases sont buggés due au fait que  
+        <br></br>
+        Par  Charles et  William
     </body>
     </html>
     """
