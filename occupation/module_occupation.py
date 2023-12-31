@@ -10,7 +10,7 @@ def extract_data(file_list):
     """
     data = []
     for file_path in file_list:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             data.append(file.read())
     return data
 
@@ -56,8 +56,10 @@ def generate_html(data, output_dir):
     :type output_dir: str
     """
     html_content = """
-    <html>
+    <!DOCTYPE html>
+    <html lang="fr">
     <head>
+        <meta charset="UTF-8">
         <title>I-calendar : occupation des salles</title>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="icon" type="img/png" href="images/icon.png" />
@@ -80,17 +82,17 @@ def generate_html(data, output_dir):
     processed_locations = set()
     for event in data:
         location = event['location']
-        if location in processed_locations:
-           continue
+        if location in processed_locations  or location == '' or location == 'salle-non-renseignée-IUT86-Chatel':
+            continue
         total_hours = sum((event['end_time'] - event['start_time']).total_seconds() / 3600 for event in data if event['location'] == location)
         processed_locations.add(location)
         html_content += f"""    
         <tr>
             <td>{location}</td>
             <td>{total_hours}</td>
-            <td>{total_hours / 7 }</td>
-            <td>{total_hours / len(data)}</td>
-            <td>{total_hours / len(data) * 100}%</td>
+            <td>{round(total_hours / 7, 2)}</td>
+            <td>{round(total_hours / len(data), 2)}</td>
+            <td>{round((total_hours / len(data)) * 100, 2)}%</td>
         </tr>
     """
 
@@ -105,5 +107,5 @@ def generate_html(data, output_dir):
     </html>
     """
 
-    with open(output_dir + 'index.html', 'w') as file:
+    with open(output_dir + 'index.html', 'w', encoding='utf-8') as file:
         file.write(html_content)
