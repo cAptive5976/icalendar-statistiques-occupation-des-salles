@@ -72,7 +72,7 @@ def generate_html(data, output_dir):
         <meta charset="UTF-8">
         <title>I-calendar : occupation des salles</title>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="icon" type="img/png" href="images/icon.png" />
+        <link rel="icon" type="img/png" href="img/icon.png" />
     </head>
     <body>
     <header>
@@ -90,18 +90,40 @@ def generate_html(data, output_dir):
     """
 
     processed_locations = set()
-    for event in data:
+    ordre_salles = [
+    'A200 [I01]',
+    'MP-I-20 [I03]',
+    'RT-I-01 [I04]',
+    'RT-I-02 [I04]',
+    'RT03 [I04]',
+    'RT04 [I04]',
+    'RT05 [I04]',
+    'RT12 [I04]',
+    'RT13 [I04]',
+    'RT14 [I04]',
+    'RT15 [I04]',
+    'RT16 [I04]',
+    'RT26 [I04]',
+    'RT28 [I04]',
+    'RT-Projet [I04]',
+    'RT-Réunion [I04]',
+    'TC-A [I05]',
+    ]
+    sorted_data = sorted(data, key=lambda event: ordre_salles.index(event['location']) if event['location'] in ordre_salles else float('inf'))
+    for event in sorted_data:
         location = event['location']
-        if location in processed_locations  or location == '' or location == 'salle-non-renseignée-IUT86-Chatel':
+        if location in processed_locations:
+            continue
+        if location not in ordre_salles:
             continue
         total_hours = sum((event['end_time'] - event['start_time']).total_seconds() / 3600 for event in data if event['location'] == location)
         processed_locations.add(location)
         html_content += f"""    
         <tr>
             <td>{location}</td>
-            <td>{total_hours}</td>
-            <td>{round(total_hours / 7, 2)}</td>
-            <td>{round(total_hours / len(data), 2)}</td>
+            <td>{total_hours}h</td>
+            <td>{round(total_hours / 7, 2)}h</td>
+            <td>{round(total_hours / len(data), 2)}h</td>
             <td>{round((total_hours / len(data)) * 100, 2)}%</td>
         </tr>
     """
