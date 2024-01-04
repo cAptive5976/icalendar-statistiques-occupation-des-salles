@@ -1,14 +1,17 @@
-.. I-calendar : occupation des salles documentation master file, created by
-   sphinx-quickstart on Mon Dec 11 11:16:32 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to I-calendar : occupation des salles's documentation!
-==============================================================
+SAÉ 15 - Traiter des données
+=======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Objectif général de la SAÉ
+
+
+
+   :caption: Objectifs et cahiers des charges
+
+   content/objectifs
+   content/cahier_des_charges
+   content/code
 
 
 

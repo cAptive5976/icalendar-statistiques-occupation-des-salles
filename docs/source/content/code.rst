@@ -1,11 +1,11 @@
 Documentation du code
 *********************
 
-.. automodule:: monprojet
+.. automodule:: occupation
 
 
 Module 1
 ========================
 
-.. automodule:: monprojet.module1
-   :members:
+.. automodule:: occupation.module_occupation
+   :members: 2
