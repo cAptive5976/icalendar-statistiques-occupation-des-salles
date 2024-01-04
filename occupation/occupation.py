@@ -1,5 +1,5 @@
 import argparse
-from occupation.module_occupation import *
+from module_occupation import *
 
 def main():
     """
