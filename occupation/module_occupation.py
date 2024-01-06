@@ -18,8 +18,10 @@ def extract_data(file_list):
     :return: Liste des contenus des fichiers.
     :rtype: List[str]
     """
+    assert isinstance(file_list, list)
     data = []
     for file_path in file_list:
+        assert isinstance(file_path, str)
         with open(file_path, 'r', encoding='utf-8') as file:
             data.append(file.read())
     return data
@@ -32,9 +34,11 @@ def process_data(data):
     :return: Liste d'événements traités avec les détails pertinents.
     :rtype: List[Dict[str, Any]]
     """
+    assert isinstance(data, list)
     processed_data = []
 
     for ics_content in data:
+        assert isinstance(ics_content, str)
         lines = ics_content.split('\n')
         events = []
         current_event = None
@@ -65,6 +69,8 @@ def generate_html(data, output_dir):
     :param output_dir: Répertoire de sortie pour le fichier HTML généré.
     :type output_dir: str
     """
+    assert isinstance(data, list)
+    assert isinstance(output_dir, str)
     html_content = """
     <!DOCTYPE html>
     <html lang="fr">
