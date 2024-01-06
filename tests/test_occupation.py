@@ -25,8 +25,8 @@ class TestOccupation(unittest.TestCase):
         self.assertEqual(processed_data[1]['summary'], 'Cours 2')
 
     def test_generate_html(self):
-        data = [{"location": "Salle RT04", "start_time": datetime(2022, 1, 1, 12, 0), "end_time": datetime(2022, 1, 1, 13, 0)},
-                {"location": "Salle RT05", "start_time": datetime(2022, 1, 2, 12, 0), "end_time": datetime(2022, 1, 2, 13, 0)}]
+        data = [{"location": "RT04 [I04]", "start_time": datetime(2022, 1, 1, 12, 0), "end_time": datetime(2022, 1, 1, 13, 0)},
+                {"location": "RT05 [I04]", "start_time": datetime(2022, 1, 2, 12, 0), "end_time": datetime(2022, 1, 2, 13, 0)}]
         output_dir = 'tests/sorties/html/'
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
