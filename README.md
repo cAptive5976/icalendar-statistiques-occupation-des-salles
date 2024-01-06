@@ -37,7 +37,7 @@ Ce projet a pour objectif d’extraire les données des fichiers des emplois du 
   
 ## Documentation
 
-Dans le dossier docs une documentation générée avec le logiciel Sphinx seront disponibles afin de documenter le projet avec également un rappel du cahier des charges du projet
+Dans le dossier docs une documentation générée avec le logiciel Sphinx sera disponibles afin de documenter le projet avec également un rappel du cahier des charges du projet
 
 ## Prérequis
 
