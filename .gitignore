@@ -1,0 +1,7 @@
+# Fichiers HTML générés
+html/index.html
+tests/sorties/html/index.html
+
+# Cache python
+occupation/__pycache__/
+tests/__pycache__/
