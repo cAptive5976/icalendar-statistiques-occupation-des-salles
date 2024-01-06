@@ -11,15 +11,25 @@ def main():
     :returns: Aucun retour direct, mais génère un fichier HTML en sortie.
     :rtype: None
     """
-    parser = argparse.ArgumentParser(description="Création de la base des deux arguments avec argparse, on l'associe à une variable pour simplifier le code")
+
+    # Ici on utilise le module argparse pour créé des arguments et on leurs ajoute une aide (--help/-h)
+    parser = argparse.ArgumentParser(description="Ce programme extrait les données d'occupation des salles à partir de fichiers iCalendar (ICS) pour générer un rapport HTML.")
     parser.add_argument("--input-file", nargs="+", help="On indique en argument les trois fichiers ICS")
     parser.add_argument("--output-dir", help="On indique ici le répertoire où le fichier HTML sera créé")
     args = parser.parse_args()
+
+    # On vérifie avec une assertion que la liste des fichiers entrés est bien une liste, et que le chemin relatif des fichiers et du dossier est une chaine
     assert isinstance(args.input_file, list)
     assert all(isinstance(file_path, str) for file_path in args.input_file)
     assert isinstance(args.output_dir, str)
+    
+    # Avec la fonction d'extraction de données on met le contenu des trois fichiers dans la variable de données (data)
     data = extract_data(args.input_file)
+
+    # Avec la fonction de traitement de données on va découpé les événements du calendrier et mettre les éléments importants dans des variables
     processed_data = process_data(data)
+
+    # On génère maintenant la page HTML avec les données traitées
     generate_html(processed_data, args.output_dir)
 
 if __name__ == "__main__":
