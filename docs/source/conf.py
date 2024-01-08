@@ -1,7 +1,8 @@
 import os
 import sys
 
-
+sys.path.insert(0, os.path.abspath(os.path.join('..', '..')))
+print(sys.path)
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -11,7 +12,7 @@ import sys
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "statistique d'occupation des salles"
+project = "iCalendar - Statistique d'occupation des salles"
 copyright = '2024,  William et  Charles'
 author = ' William et  Charles'
 release = '1.0'
@@ -29,7 +30,7 @@ extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = []
-sys.path.insert(0, os.path.abspath('/home/etudiant/Documents/icalandar-statistiques-occupation-des-salles/occupation/occupation.py'))
+
 language = 'fr'
 
 # -- Options for HTML output -------------------------------------------------
