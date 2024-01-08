@@ -1,0 +1,102 @@
+.. test_sphinx documentation master file, created by
+   sphinx-quickstart on Sat Dec  4 10:20:32 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Informations
+************
+
+Objectif et Description du projet
+=====================
+
+Ce projet a pour objectif d’extraire les données des fichiers des emplois du temps des 3 formations du département : BUT1, BUT2, BUT3 que vous aurez préalablement extraits du logiciel ADE de l’Université afin de déterminer pour chaque salle des indicateurs d’occupation. 
+
+Données affichées
+=================
+
+Voici les données affichées :
+- Maintenant : Date et heure, Vitesse et direction du vent, Humidité, Température, Pression, Visibilité, Nuages.
+- Pour les 3 prochains jours : Vitesse et direction du vent, Température maximale et minimale, Prévision météo, Taux de précipitation, Pression.
+
+Prérequis 
+=========
+
+- Python 3 minimum
+- Accès Internet
+
+Utilisation du programme
+========================
+
+Avant de commencer l’installation, vérifier que Python 3 minimum est installé sur le PC, pour vérifier, ouvrir un terminal et taper la commande `python` sur Windows ou `python3` sur Linux, et que la connexion à Internet fonctionne correctement
+
+1) Ouvrir un terminal à l’emplacement où vous souhaitez installer le projet.
+
+2) Cloner ensuite le dépôt en utilisant la commande suivante : 
+   
+   .. code-block:: bash
+       
+       git clone https://github.com/cAptive5976/icalandar-statistiques-occupation-des-salles.git
+
+
+3) Se placer ensuite dans le répertoire du projet : 
+
+   .. code-block:: bash
+       
+       cd icalandar-statistiques-occupation-des-salles
+       
+4) Installer les modules requis à l'aide de la commande suivante
+
+   .. code-block:: bash
+       
+       pip install -r requirements.txt
+       
+5) Lancer ensuite le programme en utilisant la commande suivante, en remplaçant [NOM_AEROPORT] par l’aéroport que vous souhaitez utiliser.
+
+   - Sous Windows : 
+
+     .. code-block:: bash 
+         
+         python occupation/occupation.py --input-file fichier1.ics fichier2.ics fichier3.ics --output-dir html/
+
+   - Sous Linux : 
+
+     .. code-block:: bash
+       
+         python3 occupation/occupation.py --input-file fichier1.ics fichier2.ics fichier3.ics --output-dir html/
+
+
+Note : renplacer les nom des fichiers
+
+6) Les données sont accessibles ensuite dans le fichier html/index.html de l’arborescence. L'accès est également possible en tapant `https://[REP_PROJET]/SAE1.05_PICHON_MIANSIANTIMA_METEO_AEROPORT.git/html/index.html` dans votre navigateur (en remplaçant [REP_PROJET] par le dossier où vous avez placé l’arborescence).
+
+
+Le projet est maintenant installé ! Les données météorologiques pour ce jour et les jours suivants sont affichées sur la page HTML. 
+
+
+Structure du Projet / Arborescence
+==================================
+
+Vous trouverez dans le projet la structure suivante :
+
+.. code-block:: rst
+
+    - `occupation.py`: Script principal pour lancer le traitement.
+    - `module_occupation.py`: Module contenant les fonctions de traitement des fichiers iCalendar.
+    - `test_occupation.py`: Fichier de tests unitaires pour les fonctions du module.
+    - `tests/`: Répertoire contenant les scripts de test unitaire.
+    - `html/` : Répertoire contenant le fichier HTML généré par le script, ainsi que la feuille de style CSS
+    - `data/` : Emplacement des fichiers calendriers
+    - `doc-projet/` : Notre diagramme de cas d'utilisation fait avec Umbrelo
+  
+Documentation
+=============
+
+Dans le dossier docs une documentation générée avec le logiciel Sphinx sera disponible afin de documenter le projet avec également un rappel du cahier des charges du projet
+
+Prérequis
+=========
+
+- Python 3 minimum
+- Accès Internet
+  
+
