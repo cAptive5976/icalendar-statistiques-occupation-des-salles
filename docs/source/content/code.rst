@@ -1,11 +1,11 @@
-Documentation du code
+Documentation du programme principal
 *********************
 
 .. automodule:: occupation
 
 
-Module 1
+Documentation du module occupation des salles
 ========================
 
-.. automodule:: occupation.module_occupation
+.. automodule:: module_occupation
    :members: 2
