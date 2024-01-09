@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informations &mdash; Documentation iCalendar - Statistique d&#39;occupation des salles 1.0</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Objectifs" href="objectifs.html" />
+    <link rel="prev" title="SAE 105 - Traiter des données" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            iCalendar - Statistique d'occupation des salles
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Objectif général de la SAE</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Informations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#objectif-et-description-du-projet">Objectif et Description du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#donnees-affichees">Données affichées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-du-programme">Utilisation du programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-du-projet-arborescence">Structure du Projet / Arborescence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequis">Prérequis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objectifs.html">Objectifs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cahier_des_charges.html">I-calendar : service enseignant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html">Documentation du programme principal</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">iCalendar - Statistique d'occupation des salles</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Informations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/infos.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="informations">
+<h1>Informations<a class="headerlink" href="#informations" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="objectif-et-description-du-projet">
+<h2>Objectif et Description du projet<a class="headerlink" href="#objectif-et-description-du-projet" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Ce projet a pour objectif d’extraire les données des fichiers des emplois du temps des 3 formations du département : BUT1, BUT2, BUT3 que vous aurez préalablement extraits du logiciel ADE de l’Université afin de déterminer pour chaque salle des indicateurs d’occupation.</p>
+</section>
+<section id="donnees-affichees">
+<h2>Données affichées<a class="headerlink" href="#donnees-affichees" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="simple">
+<dt>Voici les données qui seront affichées :</dt><dd><ul class="simple">
+<li><p>heures d’utilisation</p></li>
+<li><p>heures d’utilisation moyenne par semaine</p></li>
+<li><p>heures d’utilisation moyenne par jour</p></li>
+<li><p>taux d’occupation en pourcentage</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="utilisation-du-programme">
+<h2>Utilisation du programme<a class="headerlink" href="#utilisation-du-programme" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Avant de commencer l’installation, vérifier que Python 3 minimum est installé sur le PC, pour vérifier, ouvrir un terminal et taper la commande <cite>python</cite> sur Windows ou <cite>python3</cite> sur Linux, et que la connexion à Internet fonctionne correctement</p>
+<ol class="arabic">
+<li><p>Ouvrir un terminal à l’emplacement où vous souhaitez installer le projet.</p></li>
+<li><p>Cloner ensuite le dépôt en utilisant la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cAptive5976/icalandar-statistiques-occupation-des-salles.git
+</pre></div>
+</div>
+</li>
+<li><p>Se placer ensuite dans le répertoire du projet :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>icalandar-statistiques-occupation-des-salles
+</pre></div>
+</div>
+</li>
+<li><p>Installer les modules requis à l’aide de la commande suivante</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p>Lancer ensuite le programme en utilisant la commande suivante.</p>
+<ul>
+<li><p>Sous Windows :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>occupation/occupation.py<span class="w"> </span>--input-file<span class="w"> </span>fichier1.ics<span class="w"> </span>fichier2.ics<span class="w"> </span>fichier3.ics<span class="w"> </span>--output-dir<span class="w"> </span>html/
+</pre></div>
+</div>
+</li>
+<li><p>Sous Linux :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>occupation/occupation.py<span class="w"> </span>--input-file<span class="w"> </span>fichier1.ics<span class="w"> </span>fichier2.ics<span class="w"> </span>fichier3.ics<span class="w"> </span>--output-dir<span class="w"> </span>html/
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p>Note : remplacer les noms des fichiers</p>
+<ol class="arabic simple" start="6">
+<li><p>Les données sont accessibles ensuite dans le fichier html/index.html de l’arborescence.</p></li>
+</ol>
+<p>Le projet est maintenant installé ! Les données d’utilisation sont maintenant affichées sur la page HTML.</p>
+</section>
+<section id="structure-du-projet-arborescence">
+<h2>Structure du Projet / Arborescence<a class="headerlink" href="#structure-du-projet-arborescence" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Vous trouverez dans le projet la structure suivante :</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">-</span> <span class="nv">`occupation.py`</span>: Script principal pour lancer le traitement.
+<span class="m">-</span> <span class="nv">`module_occupation.py`</span>: Module contenant les fonctions de traitement des fichiers iCalendar.
+<span class="m">-</span> <span class="nv">`test_occupation.py`</span>: Fichier de tests unitaires pour les fonctions du module.
+<span class="m">-</span> <span class="nv">`tests/`</span>: Répertoire contenant les scripts de test unitaire.
+<span class="m">-</span> <span class="nv">`html/`</span> : Répertoire contenant le fichier HTML généré par le script, ainsi que la feuille de style CSS
+<span class="m">-</span> <span class="nv">`data/`</span> : Emplacement des fichiers calendriers
+<span class="m">-</span> <span class="nv">`doc-projet/`</span> : Notre diagramme de cas d&#39;utilisation fait avec Umbrelo
+</pre></div>
+</div>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Lien permanent vers cette rubrique"></a></h2>
+<p>Dans le dossier docs une documentation générée avec le logiciel Sphinx sera disponible afin de documenter le projet avec également un rappel du cahier des charges du projet</p>
+</section>
+<section id="prerequis">
+<h2>Prérequis<a class="headerlink" href="#prerequis" title="Lien permanent vers cette rubrique"></a></h2>
+<ul class="simple">
+<li><p>Python 3 minimum</p></li>
+<li><p>Accès Internet</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="../index.html" class="btn btn-neutral float-left" title="SAE 105 - Traiter des données" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="objectifs.html" class="btn btn-neutral float-right" title="Objectifs" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024,  William et  Charles.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

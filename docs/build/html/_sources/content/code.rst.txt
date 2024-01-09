@@ -1,11 +1,23 @@
-Documentation du code
-*********************
+Documentation du programme principal
+====================================
 
-.. automodule:: occupation
+.. toctree::
+   :maxdepth: 4
 
-
-Module 1
-========================
+Module d'extraction et de traitement des données
+------------------------------------------------
 
 .. automodule:: occupation.module_occupation
-   :members: 2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Programme principal du projet
+-----------------------------
+
+.. automodule:: occupation.occupation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
