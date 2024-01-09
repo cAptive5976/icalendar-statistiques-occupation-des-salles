@@ -1,0 +1,29 @@
+occupation package
+==================
+
+Submodules
+----------
+
+occupation.module\_occupation module
+------------------------------------
+
+.. automodule:: occupation.module_occupation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+occupation.occupation module
+----------------------------
+
+.. automodule:: occupation.occupation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: occupation
+   :members:
+   :undoc-members:
+   :show-inheritance:
