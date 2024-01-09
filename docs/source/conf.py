@@ -15,7 +15,7 @@ print(sys.path)
 project = "iCalendar - Statistique d'occupation des salles"
 copyright = '2024,  William et  Charles'
 author = ' William et  Charles'
-release = '1.0'
+release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -27,7 +27,7 @@ extensions = [
 'sphinx.ext.autodoc',
 'sphinx.ext.viewcode',
 ]
-
+autodoc_mock_imports = ['module_occupation']
 templates_path = ['_templates']
 exclude_patterns = []
 

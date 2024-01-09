@@ -5,17 +5,14 @@ SAE 105 - Traiter des données
    :maxdepth: 1
    :caption: Objectif général de la SAE
 
-   :caption: Objectifs et cahiers des charges
    content/infos
    content/objectifs
    content/cahier_des_charges
    content/code
 
 
-
-Indices and tables
-==================
+Pour un déplacement rapide dans la documentation
+------------------------------------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`

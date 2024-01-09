@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>occupation.occupation &mdash; Documentation iCalendar - Statistique d&#39;occupation des salles 1.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            iCalendar - Statistique d'occupation des salles
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Objectif général de la SAE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/infos.html">Informations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/objectifs.html">Objectifs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/cahier_des_charges.html">I-calendar : service enseignant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/code.html">Documentation du programme principal</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">iCalendar - Statistique d'occupation des salles</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">occupation.occupation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de occupation.occupation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">module_occupation</span> <span class="kn">import</span> <span class="n">extract_data</span><span class="p">,</span> <span class="n">process_data</span><span class="p">,</span> <span class="n">generate_html</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module principal du projet</span>
+
+<span class="sd">.. module:: occupation</span>
+<span class="sd">   :platform: Unix</span>
+<span class="sd">   :synopsis: Script principal pour traiter les fichiers ICS et générer un fichier HTML.</span>
+
+<span class="sd">.. moduleauthor::  William &lt;&gt;   Charles &lt;&gt;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../content/code.html#occupation.occupation.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Script principal pour traiter les fichiers ICS et générer un fichier HTML.</span>
+
+<span class="sd">    Utilise argparse pour analyser les arguments en ligne de commande et appelle les fonctions</span>
+<span class="sd">    correspondantes pour extraire les données, les traiter et générer un fichier HTML.</span>
+
+<span class="sd">    :return: Aucun retour direct, mais génère un fichier HTML en sortie.</span>
+<span class="sd">    :rtype: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Ici on utilise le module argparse pour créer des arguments et on leur ajoute une aide (--help/-h)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Ce programme extrait les données d&#39;occupation des salles à partir de fichiers iCalendar (ICS) pour générer un rapport HTML.&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--input-file&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;On indique en argument les trois fichiers ICS&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--output-dir&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;On indique ici le répertoire où le fichier HTML sera créé&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="c1"># On vérifie avec une assertion que la liste des fichiers entrés est bien une liste, et que le chemin relatif des fichiers et du dossier est une chaîne</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input_file</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">input_file</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+    
+    <span class="c1"># Avec la fonction d&#39;extraction de données, on met le contenu des trois fichiers dans la variable de données (data)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">extract_data</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input_file</span><span class="p">)</span>
+
+    <span class="c1"># Avec la fonction de traitement de données, on va découper les événements du calendrier et mettre les éléments importants dans des variables</span>
+    <span class="n">processed_data</span> <span class="o">=</span> <span class="n">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># On génère maintenant la page HTML avec les données traitées</span>
+    <span class="n">generate_html</span><span class="p">(</span><span class="n">processed_data</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output_dir</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024,  William et  Charles.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
