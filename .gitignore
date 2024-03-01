@@ -5,3 +5,6 @@ tests/sorties/html/index.html
 # Cache python
 occupation/__pycache__/
 tests/__pycache__/
+
+# Venv PyCharm
+.idea/
