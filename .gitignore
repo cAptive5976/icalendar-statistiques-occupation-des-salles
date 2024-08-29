@@ -6,7 +6,8 @@ tests/sorties/html/index.html
 occupation/__pycache__/
 tests/__pycache__/
 
-# Venv PyCharm/VisualStudio/VSCode
+# Venv PyCharm/VisualStudio/VSCode/Project IDX
 .idea/
 .vs/
 .vscode/
+.idx
